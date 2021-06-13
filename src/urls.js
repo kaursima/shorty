@@ -1,7 +1,7 @@
 const express = require('express');
 const shortid = require('shortid');
 const router = express.Router();
-
+const hostname = "https://url-shorty-by-simar.herokuapp.com";
 let urls = {};
 
 router.use(express.json());
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
   {
     "redirect" : `/urls/${short}`,
     "longUrl" : req.body.longUrl,
-    "shortUrl" : `https://localhost:4000/urls/${short}`
+    "shortUrl" : `${hostname}/urls/${short}`
   };
   res.send(urls[short]);
 });
